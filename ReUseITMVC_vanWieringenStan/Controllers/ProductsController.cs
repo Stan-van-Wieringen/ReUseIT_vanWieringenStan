@@ -9,6 +9,7 @@ using ReUseIT_vanWieringenStan.Entities;
 
 namespace ReUseITMVC_vanWieringenStan.Controllers
 {
+    [Route("[controller]")]
     public class ProductsController : Controller
     {
         private ProductBaseContext db;
@@ -19,6 +20,7 @@ namespace ReUseITMVC_vanWieringenStan.Controllers
         }
 
         // GET: Products
+        [Route("[action]")]
         public async Task<IActionResult> Index()
         {
             var productBaseContext = db.Product.Include(p => p.Category);
@@ -26,6 +28,7 @@ namespace ReUseITMVC_vanWieringenStan.Controllers
         }
 
         // GET: Products/Details/5
+        [Route("[action]/{id?}")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -45,6 +48,7 @@ namespace ReUseITMVC_vanWieringenStan.Controllers
         }
 
         // GET: Products/Create
+        [Route("[action]")]
         public IActionResult Create()
         {
             ViewData["CategoryId"] = new SelectList(db.Category, "CategoryId", "Description");
@@ -69,6 +73,7 @@ namespace ReUseITMVC_vanWieringenStan.Controllers
         }
 
         // GET: Products/Edit/5
+        [Route("[action]/{id?}")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -122,6 +127,7 @@ namespace ReUseITMVC_vanWieringenStan.Controllers
         }
 
         // GET: Products/Delete/5
+        [Route("[action]/{id?}")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
