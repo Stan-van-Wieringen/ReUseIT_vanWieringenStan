@@ -47,8 +47,8 @@ namespace ReUseITMVC_vanWieringenStan.Controllers
             return View(product);
         }
 
-        // GET: Products/Create
-        [Route("[action]")]
+        // GET: Products/Add
+        [Route("Add")]
         public IActionResult Create()
         {
             ViewData["CategoryId"] = new SelectList(db.Category, "CategoryId", "Description");
