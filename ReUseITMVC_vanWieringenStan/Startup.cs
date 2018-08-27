@@ -4,14 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using ReUseIT_vanWieringenStan.Entities;
 
-namespace ReUseIT_vanWieringenStan
+namespace ReUseITMVC_vanWieringenStan
 {
     public class Startup
     {
@@ -26,8 +22,6 @@ namespace ReUseIT_vanWieringenStan
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddDbContext<ProductBaseContext>(options =>
-                        options.UseSqlServer(Configuration.GetConnectionString("ProductBase")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,10 +29,22 @@ namespace ReUseIT_vanWieringenStan
         {
             if (env.IsDevelopment())
             {
+                app.UseBrowserLink();
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+            }
 
-            app.UseMvc();
+            app.UseStaticFiles();
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+            });
         }
     }
 }

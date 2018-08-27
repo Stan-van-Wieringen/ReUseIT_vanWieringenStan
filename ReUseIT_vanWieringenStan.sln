@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReUseIT_vanWieringenStan", "ReUseIT_vanWieringenStan\ReUseIT_vanWieringenStan.csproj", "{7B263587-3285-4548-B4F1-DBEA72FC8DAF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReUseIT_vanWieringenStan", "ReUseIT_vanWieringenStan\ReUseIT_vanWieringenStan.csproj", "{7B263587-3285-4548-B4F1-DBEA72FC8DAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReUseITMVC_vanWieringenStan", "ReUseITMVC_vanWieringenStan\ReUseITMVC_vanWieringenStan.csproj", "{0231B250-563C-4A99-85D9-EF46812CD62E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{7B263587-3285-4548-B4F1-DBEA72FC8DAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B263587-3285-4548-B4F1-DBEA72FC8DAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B263587-3285-4548-B4F1-DBEA72FC8DAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0231B250-563C-4A99-85D9-EF46812CD62E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0231B250-563C-4A99-85D9-EF46812CD62E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0231B250-563C-4A99-85D9-EF46812CD62E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0231B250-563C-4A99-85D9-EF46812CD62E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
