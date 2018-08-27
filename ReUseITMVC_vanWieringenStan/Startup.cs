@@ -4,8 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ReUseIT_vanWieringenStan.Entities;
 
 namespace ReUseITMVC_vanWieringenStan
 {
@@ -22,6 +24,8 @@ namespace ReUseITMVC_vanWieringenStan
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddDbContext<ProductBaseContext>(options =>
+                        options.UseSqlServer(Configuration.GetConnectionString("ProductBase")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

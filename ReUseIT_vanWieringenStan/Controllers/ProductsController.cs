@@ -13,18 +13,18 @@ namespace ReUseIT_vanWieringenStan.Controllers
     [Route("api/Products")]
     public class ProductsController : Controller
     {
-        private readonly ProductBaseContext _context;
+        private readonly ProductBaseContext db;
 
         public ProductsController(ProductBaseContext context)
         {
-            _context = context;
+            db = context;
         }
 
         // GET: api/Products
         [HttpGet]
         public IEnumerable<Product> GetProduct()
         {
-            return _context.Product;
+            return db.Product;
         }
 
         // GET: api/Products/5
@@ -36,7 +36,7 @@ namespace ReUseIT_vanWieringenStan.Controllers
                 return BadRequest(ModelState);
             }
 
-            var product = await _context.Product.SingleOrDefaultAsync(m => m.ProductId == id);
+            var product = await db.Product.SingleOrDefaultAsync(m => m.ProductId == id);
 
             if (product == null)
             {
@@ -60,11 +60,11 @@ namespace ReUseIT_vanWieringenStan.Controllers
                 return BadRequest();
             }
 
-            _context.Entry(product).State = EntityState.Modified;
+            db.Entry(product).State = EntityState.Modified;
 
             try
             {
-                await _context.SaveChangesAsync();
+                await db.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -90,8 +90,8 @@ namespace ReUseIT_vanWieringenStan.Controllers
                 return BadRequest(ModelState);
             }
 
-            _context.Product.Add(product);
-            await _context.SaveChangesAsync();
+            db.Product.Add(product);
+            await db.SaveChangesAsync();
 
             return CreatedAtAction("GetProduct", new { id = product.ProductId }, product);
         }
@@ -105,21 +105,21 @@ namespace ReUseIT_vanWieringenStan.Controllers
                 return BadRequest(ModelState);
             }
 
-            var product = await _context.Product.SingleOrDefaultAsync(m => m.ProductId == id);
+            var product = await db.Product.SingleOrDefaultAsync(m => m.ProductId == id);
             if (product == null)
             {
                 return NotFound();
             }
 
-            _context.Product.Remove(product);
-            await _context.SaveChangesAsync();
+            db.Product.Remove(product);
+            await db.SaveChangesAsync();
 
             return Ok(product);
         }
 
         private bool ProductExists(int id)
         {
-            return _context.Product.Any(e => e.ProductId == id);
+            return db.Product.Any(e => e.ProductId == id);
         }
     }
 }
