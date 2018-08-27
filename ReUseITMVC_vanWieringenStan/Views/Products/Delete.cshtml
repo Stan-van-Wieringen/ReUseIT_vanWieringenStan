@@ -42,10 +42,14 @@
             @Html.DisplayFor(model => model.Category.Description)
         </dd>
     </dl>
-    
+
     <form asp-action="Delete">
         <input type="hidden" asp-for="ProductId" />
         <input type="submit" value="Delete" class="btn btn-default" /> |
         <a asp-action="Index">Back to List</a>
     </form>
 </div>
+
+@section footer {
+    &copy; 2018 - ReUseIT_vanWieringenStan
+}

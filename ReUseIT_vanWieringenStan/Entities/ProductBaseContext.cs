@@ -10,19 +10,19 @@ namespace ReUseIT_vanWieringenStan.Entities
         public virtual DbSet<Product> Product { get; set; }
 
         public ProductBaseContext(DbContextOptions<ProductBaseContext> options)
-            :base(options)
+            : base(options)
         {
 
         }
 
-//        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-//        {
-//            if (!optionsBuilder.IsConfigured)
-//            {
-//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-//                optionsBuilder.UseSqlServer(@"Data Source=STAN-PC\SQLEXPRESS;Initial Catalog=ProductBase;Integrated Security=True;");
-//            }
-//        }
+        //        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //        {
+        //            if (!optionsBuilder.IsConfigured)
+        //            {
+        //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+        //                optionsBuilder.UseSqlServer(@"Data Source=STAN-PC\SQLEXPRESS;Initial Catalog=ProductBase;Integrated Security=True;");
+        //            }
+        //        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
